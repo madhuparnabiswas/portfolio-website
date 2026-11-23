@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Madhuparna Biswas Portfolio</title>
+    <meta name="description"
+        content="Developer portfolio of Madhuparna Biswas — Computer Science & Engineering undergrad at IIIT Agartala focused on applied AI/ML engineering and full-stack software development." />
+
+    <!-- Preconnect to Google Fonts for fast fallback typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&family=Michroma&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Prevent theme flash before initial paint (defaults strictly to Light Mode) -->
+    <script src="js/theme-init.js"></script>
+
+    <!-- Tailwind CSS CDN & Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body class="bg-bg text-fg antialiased selection:bg-fg selection:text-bg">
+
+    <!-- ======================================================================
+       MINIMAL STICKY NAVIGATION HEADER
+       ====================================================================== -->
+    <header id="site-header" class="site-header fixed top-0 inset-x-0 z-50">
+        <div class="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+            <!-- Left Lowercase Brand Mark -->
+            <a href="#top"
+                class="font-agrandir text-sm sm:text-[15px] tracking-tight text-fg hover:opacity-70 transition-opacity py-2">
+                madhuparna.
+            </a>
+
+            <!-- Right Desktop Nav + Light/Dark Toggle + Mobile Menu Button -->
+            <div class="flex items-center gap-2 sm:gap-6">
+                <nav aria-label="Primary Navigation" class="hidden md:flex items-center gap-7 text-sm text-muted">
+                    <a href="#about" class="hover:text-fg transition-colors py-1">About</a>
+                    <a href="#skills" class="hover:text-fg transition-colors py-1">Skills</a>
+                    <a href="#projects" class="hover:text-fg transition-colors py-1">Projects</a>
+                    <a href="#experience" class="hover:text-fg transition-colors py-1">Experience</a>
+                    <a href="#contact" class="hover:text-fg transition-colors py-1">Contact</a>
+                </nav>
+
+                <!-- Monochrome Light / Dark Toggle -->
+                <button id="theme-toggle" type="button" aria-label="Toggle dark mode"
+                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-hairline bg-surface hover:border-strong text-xs font-agrandir text-fg transition-all cursor-pointer">
+                    <svg id="icon-sun" class="w-3.5 h-3.5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path
+                            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
+                        </path>
+                    </svg>
+                    <svg id="icon-moon" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <span id="theme-label" class="hidden sm:inline tracking-tight">Dark</span>
+                </button>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false"
+                    aria-controls="mobile-menu"
+                    class="md:hidden inline-flex items-center justify-center p-2.5 rounded-md border border-hairline text-fg hover:bg-surface transition-colors">
+                    <svg id="menu-icon-open" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round">
+                        <path d="M4 7h16M4 12h16M4 17h16"></path>
+                    </svg>
+                    <svg id="menu-icon-close" class="w-4 h-4 hidden" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                        <path d="M6 6l12 12M18 6l-12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-hairline bg-bg px-6 py-4">
+            <nav aria-label="Mobile Navigation" class="flex flex-col space-y-1 text-sm">
+                <a href="#about"
+                    class="mobile-nav-link py-2.5 text-muted hover:text-fg border-b border-hairline transition-colors">About</a>
+                <a href="#skills"
+                    class="mobile-nav-link py-2.5 text-muted hover:text-fg border-b border-hairline transition-colors">Skills</a>
+                <a href="#projects"
+                    class="mobile-nav-link py-2.5 text-muted hover:text-fg border-b border-hairline transition-colors">Projects</a>
+                <a href="#experience"
+                    class="mobile-nav-link py-2.5 text-muted hover:text-fg border-b border-hairline transition-colors">Experience</a>
+                <a href="#contact" class="mobile-nav-link py-2.5 text-muted hover:text-fg transition-colors">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="top">
+        <!-- ====================================================================
+         SECTION 1: HERO
+         ==================================================================== -->
+        <section aria-label="Introduction"
+            class="min-h-screen flex flex-col items-center justify-center px-5 sm:px-8 pt-16 pb-0 text-center reveal">
+            <div class="w-full max-w-4xl mx-auto flex flex-col items-center">
+                <p class="font-intro italic text-xl sm:text-2xl md:text-[26px] text-fg tracking-wide mb-2 sm:mb-3">
+                    hi, i am
+                </p>
+
+                <h1 class="hero-wordmark text-fg mb-4 sm:mb-5">
+                    madhuparna
+                </h1>
+
+                <p class="text-sm sm:text-base md:text-[17px] text-fg/90 tracking-tight mb-12 sm:mb-16">
+                    CSE <span class="italic font-normal">Student</span> &amp; AI/ML <span
+                        class="italic font-normal">Engineer</span>
+                </p>
+
+                <a href="#about"
+                    class="mono-pill-btn inline-flex items-center gap-2 px-5 py-1.5 rounded-full text-xs sm:text-[13px] tracking-wide">
+                    <span>Explore</span>
+                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M6 9l6 6 6-6"></path>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+         SECTION 2: ABOUT ME
+         ==================================================================== -->
+        <section id="about" class="py-12 sm:py-32 px-5 sm:px-8 ">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10 items-center">
+                    <!-- Left Column: Bio -->
+                    <div class="md:col-span-7 reveal">
+                        <h2 class="text-3xl font-agrandir sm:text-4xl font-bold tracking-tight text-fg mb-7">
+                            About Me
+                        </h2>
+
+                        <div class="space-y-5 text-[15px] sm:text-base leading-relaxed text-muted max-w-xl">
+                            <p>
+                                I'm Madhuparna Biswas, a Computer Science &amp; Engineering undergrad focused on applied
+                                AI/ML
+                                engineering. I enjoy bridging the gap between foundational machine learning concepts and
+                                real-world
+                                software—working across deep learning, computer vision, and modern language models to
+                                build systems that
+                                are both technically sound and practical.
+                            </p>
+                            <p>
+                                With a strong foundation in full-stack development and software engineering, I care
+                                about taking ideas
+                                beyond notebooks and turning them into reliable, production-ready applications. I'm
+                                currently looking
+                                for AI/ML engineering internships where I can contribute to impactful products, learn
+                                from experienced
+                                teams, and ship scalable systems.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Inline Vector Pixel-Art Banana Cat Mascot -->
+                    <div class="md:col-span-5 flex justify-center md:justify-end reveal">
+                        <figure class="mascot-wrapper inline-flex flex-col items-center cursor-default"
+                            aria-label="Pixel art illustration of a cat wearing a banana costume">
+                            <svg id="banana-cat-svg" class="pixel-art-svg w-44 sm:w-52 md:w-56 h-auto"
+                                viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg" role="img"
+                                aria-labelledby="mascot-title">
+                                <title id="mascot-title">Pixel-art banana cat mascot</title>
+                            </svg>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+         SECTION 3: TECH STACK MATRIX
+         ==================================================================== -->
+        <section id="skills" class="py-12 sm:py-32 px-5 sm:px-8 ">
+            <div class="max-w-5xl mx-auto">
+                <div class="mb-0 sm:mb-14 reveal">
+                    <p class="font-intro italic text-lg text-subtle mb-1.5">
+                        // Skills
+                    </p>
+                    <h2 class="text-3xl font-agrandir sm:text-4xl font-bold tracking-tight text-fg">
+                        Tech Stack Matrix
+                    </h2>
+                </div>
+
+                <!-- 3-Column Monochrome Architectural Matrix -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 border border-hairline rounded-md overflow-hidden reveal">
+                    <!-- Column 01: Languages & Tools -->
+                    <div
+                        class="p-7 sm:p-8 border-b lg:border-b-0 lg:border-r border-hairline bg-bg flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-6 pb-4 border-b border-hairline">
+                                <span class="font-intro text-xs text-subtle tracking-widest">01</span>
+                                <span class="font-arial text-[11px] uppercase tracking-wider text-subtle">Core</span>
+                            </div>
+                            <h3 class="text-lg font-semibold tracking-tight text-fg mb-5">
+                                Languages &amp; Tools
+                            </h3>
+                            <ul class="flex flex-wrap gap-2">
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    Python</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    C++</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    Java</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    JavaScript</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    SQL</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    Git &amp; GitHub</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    Docker</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    Linux</li>
+                            </ul>
+                        </div>
+                        <p class="mt-8 pt-4 border-t border-hairline text-xs text-subtle font-arial">
+                            Systems, scripting &amp; developer workflow
+                        </p>
+                    </div>
+
+                    <!-- Column 02: Web Development -->
+                    <div
+                        class="p-7 sm:p-8 border-b lg:border-b-0 lg:border-r border-hairline bg-bg flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-6 pb-4 border-b border-hairline">
+                                <span class="font-arial text-xs text-subtle tracking-widest">02</span>
+                                <span
+                                    class="font-arial text-[11px] uppercase tracking-wider text-subtle">Full-Stack</span>
+                            </div>
+                            <h3 class="text-lg font-semibold tracking-tight text-fg mb-5">
+                                Web Development
+                            </h3>
+                            <ul class="flex flex-wrap gap-2">
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    HTML5 &amp; CSS3</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    Tailwind CSS</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    Vanilla JS</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    Node.js</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    Express.js</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    MongoDB</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    REST APIs</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    Vercel / Render</li>
+                            </ul>
+                        </div>
+                        <p class="mt-8 pt-4 border-t border-hairline text-xs text-subtle font-arial">
+                            Responsive interfaces &amp; backend architecture
+                        </p>
+                    </div>
+
+                    <!-- Column 03: AI & Machine Learning -->
+                    <div class="p-7 sm:p-8 bg-bg flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-6 pb-4 border-b border-hairline">
+                                <span class="font-arial text-xs text-subtle tracking-widest">03</span>
+                                <span class="font-arial text-[11px] uppercase tracking-wider text-subtle">Applied
+                                    AI</span>
+                            </div>
+                            <h3 class="text-lg font-semibold tracking-tight text-fg mb-5">
+                                AI &amp; Machine Learning
+                            </h3>
+                            <ul class="flex flex-wrap gap-2">
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    PyTorch</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    Transformers &amp; LLMs</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    RAG</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    Computer Vision</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    Scikit-learn</li>
+                                <li
+                                    class="px-3 py-1.5 text-xs sm:text-[13px] font-arial border border-hairline rounded bg-surface text-fg hover:bg-fg hover:text-bg hover:border-fg transition-colors cursor-default">
+                                    Pandas &amp; NumPy</li>
+                            </ul>
+                        </div>
+                        <p class="mt-8 pt-4 border-t border-hairline text-xs text-subtle font-arial">
+                            Deep learning, vision &amp; language systems
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+         SECTION 4: SELECTED PROJECTS
+         ==================================================================== -->
+        <section id="projects" class="py-24 sm:py-32 px-5 sm:px-8">
+            <div class="max-w-5xl mx-auto">
+                <!-- Header + Interactive Filter Tabs -->
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 sm:mb-14 reveal">
+                    <div>
+                        <p class="font-intro italic text-lg text-subtle mb-1.5">
+                            // Work
+                        </p>
+                        <h2 class="text-3xl font-agrandir sm:text-4xl font-bold tracking-tight text-fg">
+                            Selected Projects
+                        </h2>
+                    </div>
+
+                    <div role="tablist" aria-label="Filter projects by category"
+                        class="inline-flex items-center p-1 rounded-full border border-hairline bg-surface self-start sm:self-auto">
+                        <button type="button" role="tab" aria-selected="true" data-filter="all"
+                            class="filter-btn px-4 py-1.5 rounded-full text-xs font-arial transition-all bg-fg text-bg cursor-pointer">
+                            All
+                        </button>
+                        <button type="button" role="tab" aria-selected="false" data-filter="aiml"
+                            class="filter-btn px-4 py-1.5 rounded-full text-xs font-arial transition-all text-muted hover:text-fg cursor-pointer">
+                            AI / ML
+                        </button>
+                        <button type="button" role="tab" aria-selected="false" data-filter="webdev"
+                            class="filter-btn px-4 py-1.5 rounded-full text-xs font-arial transition-all text-muted hover:text-fg cursor-pointer">
+                            Web Dev
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 2-Column Project Cards Grid -->
+                <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+                    <!-- Project 01 -->
+                    <article data-category="aiml"
+                        class="project-card group border border-hairline rounded-md p-6 sm:p-7 bg-bg hover:border-strong hover:bg-surface/60 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <span class="font-arial text-xs text-subtle">01</span>
+                                <span
+                                    class="font-arial text-[11px] uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-hairline text-muted bg-surface">
+                                    AI / ML
+                                </span>
+                            </div>
+
+                            <h3
+                                class="text-xl font-semibold tracking-tight text-fg mb-3 group-hover:underline decoration-1 underline-offset-4">
+                                Multimodal RAG Document QA Pipeline
+                            </h3>
+
+                            <p class="text-sm leading-relaxed text-muted mb-6">
+                                End-to-end document processing and natural language QA system built on <span
+                                    class="font-arial text-xs text-fg">Qwen2.5-VL-7B-Instruct</span> with PyTorch ROCm,
+                                indexing PDFs and
+                                structured CSVs with grounded citations.
+                            </p>
+                        </div>
+
+                        <div>
+                            <div class="flex flex-wrap gap-1.5 mb-6">
+                                <span
+                                    class="font-arial text-[11px] px-2.5 py-1 rounded border border-hairline text-muted">Python</span>
+                                <span
+                                    class="font-arial text-[11px] px-2.5 py-1 rounded border border-hairline text-muted">PyTorch
+                                    ROCm</span>
+                                <span
+                                    class="font-arial text-[11px] px-2.5 py-1 rounded border border-hairline text-muted">Qwen2.5-VL</span>
+                                <span
+                                    class="font-arial text-[11px] px-2.5 py-1 rounded border border-hairline text-muted">Multimodal
+                                    RAG</span>
+                            </div>
+
+                            <div class="pt-4 border-t border-hairline flex items-center gap-5 text-xs font-arial">
+                                <a href="https://github.com/madhuparnabiswas/mc3-rag" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-1.5 text-fg hover:opacity-65 transition-opacity py-1">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                        aria-hidden="true">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                        </path>
+                                    </svg>
+                                    <span>GitHub</span>
+                                </a>
+
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 02 -->
+
+                    <article data-category="webdev"
+                        class="project-card group border border-hairline rounded-md p-6 sm:p-7 bg-bg hover:border-strong hover:bg-surface/60 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-5">
+                                <span class="font-arial text-xs text-subtle">02</span>
+                                <span
+                                    class="font-arial text-[11px] uppercase tracking-wider px-2.5 py-0.5 rounded-full border border-hairline text-muted bg-surface">
+                                    Web Dev
+                                </span>
+                            </div>
+
+                            <h3
+                                class="text-xl font-semibold tracking-tight text-fg mb-3 group-hover:underline decoration-1 underline-offset-4">
+                                Marker — Bookmark Manager
+                            </h3>
+
+                            <p class="text-sm leading-relaxed text-muted mb-6">
+                                Full-stack bookmark management platform built with Node.js, Express, MongoDB, and
+                                Vanilla JS, featuring
+                                JWT authentication and a <span class="font-arial text-xs text-fg">localStorage</span>
+                                guest demo mode.
+                            </p>
+                        </div>
+
+                        <div>
+                            <div class="flex flex-wrap gap-1.5 mb-6">
+                                <span
+                                    class="font-arial text-[11px] px-2.5 py-1 rounded border border-hairline text-muted">Node.js</span>
+                                <span
+                                    class="font-arial text-[11px] px-2.5 py-1 rounded border border-hairline text-muted">Express</span>
+                                <span
+                                    class="font-arial text-[11px] px-2.5 py-1 rounded border border-hairline text-muted">MongoDB</span>
+                                <span
+                                    class="font-arial text-[11px] px-2.5 py-1 rounded border border-hairline text-muted">Vanilla
+                                    JS</span>
+                            </div>
+
+                            <div class="pt-4 border-t border-hairline flex items-center gap-5 text-xs font-arial">
+                                <a href="https://github.com/madhuparnabiswas/Marker-Website" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-1.5 text-fg hover:opacity-65 transition-opacity py-1">
+                                    <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                                        aria-hidden="true">
+                                        <path
+                                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                                        </path>
+                                    </svg>
+                                    <span>GitHub</span>
+                                </a>
+                                <a href="https://marker-neon.vercel.app/" target="_blank" rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-1 text-muted hover:text-fg transition-colors py-1">
+                                    <span>Live</span>
+                                    <span aria-hidden="true">↗</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+         SECTION 5: EXPERIENCE & EDUCATION (Two-Column Vertical Timeline)
+         ==================================================================== -->
+        <section id="experience" class="py-24  sm:py-32 px-5 sm:px-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="experience-grid">
+                    <!-- Left Sticky Intro Column -->
+                    <div class="experience-sticky reveal">
+                        <p class="font-intro italic text-lg text-subtle mb-3">
+                            // Journey
+                        </p>
+                        <h2
+                            class="text-4xl font-agrandir :text-[2.65rem] font-bold text-fg leading-[1.08] tracking-[-0.02em] mb-5">
+                            Experience &amp;<br />Education
+                        </h2>
+                        <p class="text-sm leading-relaxed text-subtle max-w-[28ch]">
+                            Where I've learned, built and broken things along the way.
+                        </p>
+                    </div>
+
+                    <!-- Right Column: Vertical Hairline Timeline -->
+                    <div class="reveal">
+                        <ol class="timeline-list mb-14">
+                            <!-- Entry 1: Internship (Warm Gold Marker) -->
+                            <li class="timeline-item">
+                                <span class="timeline-marker timeline-marker--gold" aria-hidden="true"></span>
+                                <div class="timeline-header">
+                                    <h3 class="timeline-title">Web Development Intern</h3>
+                                    <span class="timeline-date">2026</span>
+                                </div>
+                                <p class="timeline-org">Sarjana HRTech, Kolkata</p>
+                                <p class="timeline-desc">
+                                    Engineered responsive client websites and foundational CRM application skeletons
+                                    using JavaScript,
+                                    Node.js, Express, and MongoDB alongside the internal IT team and clients.
+                                </p>
+                            </li>
+
+                            <!-- Entry 2: Leadership (Primary Ink Marker) -->
+                            <li class="timeline-item">
+                                <span class="timeline-marker timeline-marker--ink" aria-hidden="true"></span>
+                                <div class="timeline-header">
+                                    <h3 class="timeline-title">Co-founder &amp; President</h3>
+                                    <span class="timeline-date">2026 — PRESENT</span>
+                                </div>
+                                <p class="timeline-org">BuildLab, IIIT Agartala</p>
+                                <p class="timeline-desc">
+                                    Co-founded and lead a multi-domain student technical club structured across AI/ML,
+                                    web development,
+                                    cloud, and cybersecurity tracks.
+                                </p>
+                            </li>
+
+                            <!-- Entry 3: Leadership (Primary Ink Marker) -->
+                            <li class="timeline-item">
+                                <span class="timeline-marker timeline-marker--ink" aria-hidden="true"></span>
+                                <div class="timeline-header">
+                                    <h3 class="timeline-title">Vice President</h3>
+                                    <span class="timeline-date">2025 — PRESENT</span>
+                                </div>
+                                <p class="timeline-org">PIXELS, NIT Agartala</p>
+                                <p class="timeline-desc">
+                                    Leading the campus photography, videography, and creative media club; organizing
+                                    flagship design
+                                    challenges, short-film competitions, and tech-fest events.
+                                </p>
+                            </li>
+
+                            <!-- Entry 4: Education (Muted Slate-Periwinkle Marker) -->
+                            <li class="timeline-item">
+                                <span class="timeline-marker timeline-marker--edu" aria-hidden="true"></span>
+                                <div class="timeline-header">
+                                    <h3 class="timeline-title">B.Tech, Computer Science &amp; Engineering</h3>
+                                    <span class="timeline-date">2024 — 2028</span>
+                                </div>
+                                <p class="timeline-org">IIIT Agartala</p>
+                                <p class="timeline-desc">
+                                    Coursework: Data Structures &amp; Algorithms, Operating Systems, DBMS, Computer
+                                    Architecture, Automata
+                                    Theory, and Machine Learning.
+                                </p>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+         SECTION 6: CONTACT & FOOTER
+         ==================================================================== -->
+        <section id="contact" class="pt-24 sm:pt-32 pb-16 px-5 sm:px-8 ">
+            <div class="max-w-5xl mx-auto">
+                <div class="border border-hairline rounded-md p-8 sm:p-12 md:p-14 bg-surface/60 reveal">
+                    <p class="font-intro italic text-lg text-subtle mb-2">
+                        // Contact
+                    </p>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-fg mb-5">
+                        Let's build something together.
+                    </h2>
+                    <p class="text-sm sm:text-base text-muted leading-relaxed max-w-xl mb-7">
+                        Currently open to AI/ML engineering and full-stack software internships. Feel free to reach out
+                        if you're
+                        building applied ML products, research prototypes, or scalable web systems.
+                    </p>
+
+                    <!-- Availability Pill -->
+                    <div
+                        class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-hairline bg-bg text-xs sm:text-[13px] text-fg mb-10">
+                        <span class="status-dot w-2 h-2 rounded-full bg-fg inline-block" aria-hidden="true"></span>
+                        <span>Available for AI/ML Engineering Internships</span>
+                    </div>
+
+                    <!-- Interactive Email Copy + Socials -->
+                    <div
+                        class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-8 border-t border-hairline">
+                        <div class="flex flex-wrap items-center gap-3">
+                            <button id="copy-email-btn" type="button" data-email="madhuparna@example.com"
+                                class="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-md border border-strong bg-fg text-bg hover:bg-transparent hover:text-fg text-xs sm:text-sm font-arial transition-colors cursor-pointer">
+                                <span id="email-text">madhuparnabiswas06@gmail.com</span>
+                                <svg id="copy-icon" class="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                    stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                </svg>
+                                <svg id="check-icon" class="w-3.5 h-3.5 shrink-0 hidden" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" aria-hidden="true">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </button>
+
+                            <div class="flex items-center gap-2">
+                                <a href="https://github.com/madhuparnabiswas" target="_blank" rel="noopener noreferrer"
+                                    class="px-3.5 py-2.5 rounded-md border border-hairline bg-bg hover:border-strong text-xs sm:text-sm font-arial text-fg transition-colors">
+                                    GitHub ↗
+                                </a>
+                                <a href="https://linkedin.com/in/madhuparna-biswas-289188247" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="px-3.5 py-2.5 rounded-md border border-hairline bg-bg hover:border-strong text-xs sm:text-sm font-arial text-fg transition-colors">
+                                    LinkedIn ↗
+                                </a>
+                                <a href="#contact" target="_blank" rel="noopener noreferrer" id="resume-link"
+                                    class="px-3.5 py-2.5 rounded-md border border-hairline bg-bg hover:border-strong text-xs sm:text-sm font-arial text-fg transition-colors">
+                                    Resume ↗
+                                </a>
+                            </div>
+                        </div>
+
+                        <a href="#top"
+                            class="mono-pill-btn inline-flex items-center justify-center gap-2 px-5 py-2 rounded-full text-xs sm:text-[13px] tracking-wide self-start sm:self-auto">
+                            <span>Back to top</span>
+                            <span aria-hidden="true">↑</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Minimal Footer -->
+                <footer
+                    class="mt-14 pt-6 border-t  flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-subtle font-arial">
+                    <p>© 2026 Madhuparna Biswas.</p>
+                    <a href="#top"
+                        class="font-agrandir text-fg text-xs tracking-tight hover:opacity-70 transition-opacity">
+                        madhuparna.
+                    </a>
+                </footer>
+            </div>
+        </section>
+    </main>
+
+    <!-- Monochrome Toast Notification -->
+    <div id="toast" role="status" aria-live="polite"
+        class="fixed bottom-6 right-6 z-50 px-4 py-2.5 rounded-md border border-strong bg-fg text-bg text-xs font-arial shadow-lg opacity-0 translate-y-3 pointer-events-none transition-all duration-300">
+        Copied to clipboard
+    </div>
+
+    <!-- Main Application Script -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

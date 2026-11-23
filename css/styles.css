@@ -1,0 +1,401 @@
+/* ==========================================================================
+   CUSTOM LOCAL FONT HOOKS
+   Paths are relative to css/styles.css (pointing to ../fonts/).
+   ========================================================================== */
+
+@font-face {
+    font-family: 'Birchen';
+    src: url('../fonts/Birchen-Regular.woff2') format('woff2');
+    font-weight: 400 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@font-face {
+    font-family: 'Agrandir';
+    src: url('../fonts/Agrandir-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Agrandir';
+    src: url('../fonts/Agrandir-TextBold.woff2') format('woff2');
+    font-weight: 500 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Agrandir';
+    src: url('../fonts/Agrandir-GrandHeavy.woff2') format('woff2');
+    font-weight: 700 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ==========================================================================
+   MONOCHROME EDITORIAL DESIGN TOKENS (LIGHT DEFAULT + DARK MODE)
+   ========================================================================== */
+:root {
+    --bg: #FFFFFF;
+    --fg: #0A0A0A;
+    --muted: #525252;
+    --subtle: #737373;
+    --border: #E5E5E5;
+    --border-strong: #0A0A0A;
+    --surface: #F8F8F8;
+    --surface-hover: #EFEFEF;
+    --header-bg: rgba(255, 255, 255, 0.88);
+    --pixel-shadow: #B6C0DC;
+    --marker-gold: #E5B21A;
+    --marker-ink: #0A0A0A;
+    --marker-edu: #A5ABC9;
+}
+
+[data-theme="dark"] {
+    --bg: #0A0A0A;
+    --fg: #F5F5F5;
+    --muted: #A3A3A3;
+    --subtle: #737373;
+    --border: #262626;
+    --border-strong: #F5F5F5;
+    --surface: #141414;
+    --surface-hover: #1C1C1C;
+    --header-bg: rgba(10, 10, 10, 0.88);
+    --pixel-shadow: #31384B;
+    --marker-gold: #E5B21A;
+    --marker-ink: #F5F5F5;
+    --marker-edu: #787E99;
+}
+
+/* ==========================================================================
+   BASE & SMOOTH THEME TRANSITIONS
+   Use overflow-x: clip on body so position: sticky works reliably everywhere
+   ========================================================================== */
+html {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: "Agrandir", "Plus Jakarta Sans", "Space Grotesk", Arial, -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 4rem;
+}
+
+main>section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    scroll-margin-top: 0 !important;
+}
+
+@media (min-width: 768px) {
+    html {
+        scroll-snap-type: y mandatory;
+    }
+
+    main>section:not(:first-child) {
+        min-height: calc(100dvh - 4rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    main>section>div {
+        width: 100%;
+    }
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--fg);
+    overflow-x: clip;
+    transition: background-color 280ms cubic-bezier(0.22, 1, 0.36, 1),
+        color 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+    border-color: var(--border);
+}
+
+::selection {
+    background-color: var(--fg);
+    color: var(--bg);
+}
+
+/* ==========================================================================
+   HERO WORDMARK TYPOGRAPHY
+   ========================================================================== */
+.hero-wordmark {
+    font-family: "Birchen", "Michroma", "Syne", sans-serif;
+    font-size: clamp(2.15rem, 8.2vw, 6.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+    text-transform: lowercase;
+    user-select: none;
+}
+
+/* Sticky glass navigation header */
+.site-header {
+    background-color: var(--header-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color 250ms ease, background-color 280ms ease;
+}
+
+.site-header.is-scrolled {
+    border-bottom-color: var(--border);
+}
+
+/* ==========================================================================
+   MINIMAL PILL BUTTONS
+   ========================================================================== */
+.mono-pill-btn {
+    background-color: transparent;
+    color: var(--fg);
+    border: 1px solid var(--subtle);
+    transition: background-color 220ms ease, color 220ms ease, border-color 220ms ease, transform 220ms ease;
+}
+
+.mono-pill-btn:hover {
+    background-color: var(--fg);
+    color: var(--bg);
+    border-color: var(--fg);
+}
+
+.mono-pill-btn:active {
+    transform: scale(0.97);
+}
+
+/* ==========================================================================
+   BANANA CAT PIXEL MASCOT
+   ========================================================================== */
+@keyframes gentleFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+.mascot-wrapper {
+    transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.mascot-wrapper:hover {
+    animation: gentleFloat 2.4s ease-in-out infinite;
+}
+
+.pixel-art-svg {
+    shape-rendering: crispEdges;
+    image-rendering: pixelated;
+}
+
+.pixel-ground-shadow {
+    fill: var(--pixel-shadow);
+    transition: fill 280ms ease;
+}
+
+/* ==========================================================================
+   EXPERIENCE & EDUCATION — TWO-COLUMN VERTICAL HAIRLINE TIMELINE
+   ========================================================================== */
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+@media (min-width: 860px) {
+    .experience-grid {
+        grid-template-columns: minmax(240px, 0.85fr) 1.65fr;
+        gap: 4.5rem;
+    }
+
+    .experience-sticky {
+        position: sticky;
+        top: 6.5rem;
+    }
+}
+
+.timeline-list {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Continuous 1px vertical hairline aligned precisely through the center of 7px square markers */
+.timeline-list::before {
+    content: "";
+    position: absolute;
+    left: 3px;
+    top: 0.55rem;
+    bottom: 0;
+    width: 1px;
+    background-color: var(--border);
+    transition: background-color 280ms ease;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 2.25rem;
+    padding-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0.5rem;
+}
+
+/* Crisp 7px x 7px square marker centered on the 1px vertical hairline */
+.timeline-marker {
+    position: absolute;
+    left: 0;
+    top: 0.46rem;
+    width: 7px;
+    height: 7px;
+    display: block;
+    transition: background-color 280ms ease, transform 220ms ease;
+}
+
+.timeline-item:hover .timeline-marker {
+    transform: scale(1.2);
+}
+
+.timeline-marker--gold {
+    background-color: var(--marker-gold);
+}
+
+.timeline-marker--ink {
+    background-color: var(--marker-ink);
+}
+
+.timeline-marker--edu {
+    background-color: var(--marker-edu);
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.timeline-title {
+    font: Arial;
+    font-size: 2.05rem;
+    line-height: 1.35;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--fg);
+}
+
+.timeline-date {
+    font-family: "Arial";
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--subtle);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.timeline-org {
+    font-family: "Instrument Serif", serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.4;
+    color: var(--muted);
+    margin-top: 0.15rem;
+    margin-bottom: 0.75rem;
+}
+
+.timeline-desc {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: var(--muted);
+    max-width: 58ch;
+}
+
+/* ==========================================================================
+   SCROLL-REVEAL & CARD INTERACTIONS
+   ========================================================================== */
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 1000ms cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1000ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card {
+    transition: opacity 280ms ease, transform 280ms ease, border-color 220ms ease, background-color 220ms ease;
+}
+
+.project-card.is-hidden {
+    display: none;
+}
+
+.project-card.is-entering {
+    animation: cardFadeIn 320ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes subtlePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.4;
+        transform: scale(0.85);
+    }
+}
+
+.status-dot {
+    animation: subtlePulse 2.2s ease-in-out infinite;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .mascot-wrapper:hover,
+    .status-dot {
+        animation: none;
+    }
+}

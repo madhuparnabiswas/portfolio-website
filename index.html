@@ -45,6 +45,7 @@
                     <a href="#about" class="hover:text-fg transition-colors py-1">About</a>
                     <a href="#skills" class="hover:text-fg transition-colors py-1">Skills</a>
                     <a href="#projects" class="hover:text-fg transition-colors py-1">Projects</a>
+                    <a href="#notes" class="hover:text-fg transition-colors py-1">Notes</a>
                     <a href="#experience" class="hover:text-fg transition-colors py-1">Experience</a>
                     <a href="#contact" class="hover:text-fg transition-colors py-1">Contact</a>
                 </nav>
@@ -91,6 +92,8 @@
                     class="mobile-nav-link py-2.5 text-muted hover:text-fg border-b border-hairline transition-colors">Skills</a>
                 <a href="#projects"
                     class="mobile-nav-link py-2.5 text-muted hover:text-fg border-b border-hairline transition-colors">Projects</a>
+                <a href="#notes"
+                    class="mobile-nav-link py-2.5 text-muted hover:text-fg border-b border-hairline transition-colors">Notes</a>
                 <a href="#experience"
                     class="mobile-nav-link py-2.5 text-muted hover:text-fg border-b border-hairline transition-colors">Experience</a>
                 <a href="#contact" class="mobile-nav-link py-2.5 text-muted hover:text-fg transition-colors">Contact</a>
@@ -123,7 +126,7 @@
                     madhuparna
                 </h1>
 
-                <p class="text-sm sm:text-base md:text-[17px] text-fg/90 tracking-tight mb-12 sm:mb-16">
+                <p class="text-sm font-agrandir sm:text-base md:text-[17px] text-fg/90 tracking-tight mb-12 sm:mb-16">
                     CSE <span class="italic font-normal">Student</span> &amp; AI/ML <span
                         class="italic font-normal">Engineer</span>
                 </p>
@@ -490,7 +493,41 @@
         </section>
 
         <!-- ====================================================================
-         SECTION 5: EXPERIENCE & EDUCATION (Two-Column Vertical Timeline)
+         SECTION 5: NOTES (Minimal Editorial Archive)
+         ==================================================================== -->
+        <section id="notes" class="py-24 sm:py-32 px-5 sm:px-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="mb-10 sm:mb-12 reveal">
+                    <p class="font-intro italic text-lg text-subtle mb-1.5">
+                        // Archive
+                    </p>
+                    <h2 class="text-3xl font-agrandir sm:text-4xl font-bold tracking-tight text-fg mb-3">
+                        Notes
+                    </h2>
+                    <p class="text-sm sm:text-base text-muted leading-relaxed max-w-xl">
+                        A collection of technical notes, ideas, and things I've learned along the way.
+                    </p>
+                </div>
+
+                <!-- Dynamic Container for featured note(s) -->
+                <div id="featured-notes-container" class="reveal">
+                    <!-- Populated automatically from content system -->
+                </div>
+
+                <!-- Bottom Link -->
+                <div class="mt-8 pt-6 border-t border-hairline flex items-center justify-between reveal">
+                    <a id="view-all-notes-link" href="/notes"
+                        class="inline-flex items-center gap-1.5 text-sm font-agrandir text-fg hover:opacity-65 transition-opacity py-1">
+                        <span>View all notes</span>
+                        <span aria-hidden="true">↗</span>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ====================================================================
+         SECTION 6: EXPERIENCE & EDUCATION (Two-Column Vertical Timeline)
          ==================================================================== -->
         <section id="experience" class="py-24  sm:py-32 px-5 sm:px-8">
             <div class="max-w-5xl mx-auto">
@@ -665,6 +702,10 @@
         class="fixed bottom-6 right-6 z-50 px-4 py-2.5 rounded-md border border-strong bg-fg text-bg text-xs font-arial shadow-lg opacity-0 translate-y-3 pointer-events-none transition-all duration-300">
         Copied to clipboard
     </div>
+
+    <!-- Notes Content System & Renderer Scripts -->
+    <script src="js/notes-data.js"></script>
+    <script src="js/notes-renderer.js"></script>
 
     <!-- Main Application Script -->
     <script src="js/main.js"></script>

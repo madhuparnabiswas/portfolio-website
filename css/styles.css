@@ -133,7 +133,7 @@ body {
    HERO WORDMARK TYPOGRAPHY
    ========================================================================== */
 .hero-wordmark {
-    font-family: "Birchen", "Michroma", "Syne", sans-serif;
+    font-family: "Birchen", sans-serif;
     font-size: clamp(2.15rem, 8.2vw, 6.25rem);
     line-height: 1.05;
     letter-spacing: -0.04em;
@@ -427,4 +427,46 @@ body {
     to {
         background-position: 0 50px;
     }
+}
+
+/* ==========================================================================
+   EDITORIAL NOTES ARCHIVE & READER STYLES
+   Minimal, typography-focused layout with hairline dividers & subtle hover
+   ========================================================================== */
+.note-entry {
+    transition: background-color 220ms ease, border-color 220ms ease, opacity 220ms ease;
+}
+
+.note-full-content h3,
+.note-full-content h4 {
+    font-family: "Agrandir", sans-serif;
+    font-weight: 600;
+    color: var(--fg);
+    margin-top: 1.85rem;
+    margin-bottom: 0.65rem;
+    letter-spacing: -0.015em;
+}
+
+.note-full-content h3 {
+    font-size: 1.25rem;
+}
+
+.note-full-content h4 {
+    font-size: 1.05rem;
+}
+
+.note-full-content p {
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 1.15rem;
+}
+
+.note-full-content code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.85em;
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    background-color: var(--surface);
+    color: var(--fg);
 }

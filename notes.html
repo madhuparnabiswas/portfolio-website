@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes — Madhuparna Biswas</title>
+    <meta name="description"
+        content="Ideas, technical explorations, and things I've learned along the way — Technical notes by Madhuparna Biswas on applied AI/ML engineering, deep learning, systems, and software architecture." />
+
+    <!-- Preconnect to Google Fonts for fast typography fallback -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&family=Michroma&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Prevent theme flash before initial paint -->
+    <script src="js/theme-init.js"></script>
+
+    <!-- Tailwind CSS CDN & Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/tailwind-config.js"></script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body class="bg-bg text-fg antialiased selection:bg-fg selection:text-bg">
+
+    <!-- ======================================================================
+       MINIMAL STICKY NAVIGATION HEADER
+       ====================================================================== -->
+    <header id="site-header" class="site-header fixed top-0 inset-x-0 z-50">
+        <div class="max-w-5xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+            <!-- Left Lowercase Brand Mark -->
+            <a href="index.html"
+                class="font-agrandir text-sm sm:text-[15px] tracking-tight text-fg hover:opacity-70 transition-opacity py-2">
+                madhuparna.
+            </a>
+
+            <!-- Right Desktop Nav + Light/Dark Toggle + Mobile Menu Button -->
+            <div class="flex items-center gap-2 sm:gap-6">
+                <nav aria-label="Primary Navigation" class="hidden md:flex items-center gap-7 text-sm text-muted">
+                    <a href="index.html#about" class="hover:text-fg transition-colors py-1">About</a>
+                    <a href="index.html#skills" class="hover:text-fg transition-colors py-1">Skills</a>
+                    <a href="index.html#projects" class="hover:text-fg transition-colors py-1">Projects</a>
+                    <a href="notes.html" class="text-fg font-medium border-b border-fg py-1">Notes</a>
+                    <a href="index.html#experience" class="hover:text-fg transition-colors py-1">Experience</a>
+                    <a href="index.html#contact" class="hover:text-fg transition-colors py-1">Contact</a>
+                </nav>
+
+                <!-- Monochrome Light / Dark Toggle -->
+                <button id="theme-toggle" type="button" aria-label="Toggle dark mode"
+                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-hairline bg-surface hover:border-strong text-xs font-agrandir text-fg transition-all cursor-pointer">
+                    <svg id="icon-sun" class="w-3.5 h-3.5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path
+                            d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41">
+                        </path>
+                    </svg>
+                    <svg id="icon-moon" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <span id="theme-label" class="hidden sm:inline tracking-tight">Dark</span>
+                </button>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="mobile-menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false"
+                    aria-controls="mobile-menu"
+                    class="md:hidden inline-flex items-center justify-center p-2.5 rounded-md border border-hairline text-fg hover:bg-surface transition-colors">
+                    <svg id="menu-icon-open" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="1.8" stroke-linecap="round">
+                        <path d="M4 7h16M4 12h16M4 17h16"></path>
+                    </svg>
+                    <svg id="menu-icon-close" class="w-4 h-4 hidden" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                        <path d="M6 6l12 12M18 6l-12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-hairline bg-bg px-6 py-4">
+            <nav aria-label="Mobile Navigation" class="flex flex-col space-y-1 text-sm">
+                <a href="index.html#about"
+                    class="mobile-nav-link py-2.5 text-muted hover:text-fg border-b border-hairline transition-colors">About</a>
+                <a href="index.html#skills"
+                    class="mobile-nav-link py-2.5 text-muted hover:text-fg border-b border-hairline transition-colors">Skills</a>
+                <a href="index.html#projects"
+                    class="mobile-nav-link py-2.5 text-muted hover:text-fg border-b border-hairline transition-colors">Projects</a>
+                <a href="notes.html"
+                    class="mobile-nav-link py-2.5 text-fg font-medium border-b border-hairline transition-colors">Notes</a>
+                <a href="index.html#experience"
+                    class="mobile-nav-link py-2.5 text-muted hover:text-fg border-b border-hairline transition-colors">Experience</a>
+                <a href="index.html#contact"
+                    class="mobile-nav-link py-2.5 text-muted hover:text-fg transition-colors">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="top" class="min-h-screen pt-28 sm:pt-36 pb-20 px-5 sm:px-8">
+        <div class="max-w-5xl mx-auto">
+
+            <!-- Dynamic Reader View (Shown when reading an individual note) -->
+            <div id="note-reader-container" class="hidden">
+                <!-- Dynamically populated by js/notes-renderer.js -->
+            </div>
+
+            <!-- Notes Listing Section -->
+            <section id="notes-listing-section">
+                <!-- Page Introduction -->
+                <div class="mb-12 sm:mb-16">
+                    <div class="flex items-center gap-2.5 text-xs text-subtle font-arial uppercase tracking-wider mb-3">
+                        <a href="index.html" class="hover:text-fg transition-colors">Home</a>
+                        <span aria-hidden="true" class="text-hairline">/</span>
+                        <span>Archive</span>
+                        <span aria-hidden="true" class="text-hairline">·</span>
+                        <span id="notes-counter" class="text-fg font-medium">Loading notes...</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-agrandir font-bold tracking-tight text-fg mb-4">
+                        Notes.
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-muted leading-relaxed max-w-xl">
+                        Ideas, technical explorations, and things I've learned along the way.
+                    </p>
+                </div>
+
+                <!-- Reverse Chronological Notes List -->
+                <div id="notes-list-container" class="space-y-0">
+                    <!-- Populated automatically from js/notes-data.js in reverse chronological order -->
+                </div>
+
+                <!-- Archive Footer Navigation -->
+                <div class="mt-14 pt-8 border-t border-hairline flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <a href="index.html" 
+                        class="mono-pill-btn inline-flex items-center gap-2 px-5 py-2 rounded-full text-xs sm:text-[13px] tracking-wide">
+                        <span aria-hidden="true">←</span>
+                        <span>Back to homepage</span>
+                    </a>
+
+                    <a href="#top" 
+                        class="text-xs font-arial text-subtle hover:text-fg transition-colors">
+                        Back to top ↑
+                    </a>
+                </div>
+            </section>
+
+            <!-- Minimal Global Footer -->
+            <footer class="mt-16 pt-8 border-t border-hairline flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-subtle font-arial">
+                <p>© 2026 Madhuparna Biswas.</p>
+                <a href="index.html" class="font-agrandir text-fg text-xs tracking-tight hover:opacity-70 transition-opacity">
+                    madhuparna.
+                </a>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- Notes Content System & Renderer Scripts -->
+    <script src="js/notes-data.js"></script>
+    <script src="js/notes-renderer.js"></script>
+
+    <!-- Global Application Script (Theme toggle & mobile menu) -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

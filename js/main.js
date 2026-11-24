@@ -267,13 +267,7 @@
 
 
 
-    const resumeLink = document.getElementById('resume-link');
-    if (resumeLink) {
-        resumeLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            showToast('Link your Resume PDF in index.html');
-        });
-    }
+
 
     /* --------------------------------------------------------------------
       6. REPEATABLE SCROLL REVEAL ANIMATIONS (RESPECTS REDUCED MOTION)
